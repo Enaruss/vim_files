@@ -109,9 +109,9 @@ Bundle 'klen/python-mode'
 Bundle 'scrooloose/syntastic'
 
 " Django
-Bundle 'vim-scripts/django.vim'
-Bundle 'vim-scripts/Dpaste.com-Plugin'
-Bundle 'cwood/vim-django'
+" Bundle 'vim-scripts/django.vim'
+" Bundle 'vim-scripts/Dpaste.com-Plugin'
+" Bundle 'cwood/vim-django'
 
 " Node.js
 Bundle 'mmalecki/vim-node.js'
@@ -616,6 +616,24 @@ let g:airline_powerline_fonts = 0
 let g:airline_theme = 'bubblegum'
 let g:airline#extensions#whitespace#enabled = 0
 
+
+if !isdirectory(expand("~/.vim/backup/"))
+    silent !echo "Creating backup dir..."
+    silent !mkdir -p ~/.vim/backup
+endif
+if !isdirectory(expand("~/.vim/swap/"))
+    silent !echo "Creating swap dir..."
+    silent !mkdir -p ~/.vim/swap
+endif
+if !isdirectory(expand("~/.vim/undo/"))
+    silent !echo "Creating undo dir..."
+    silent !mkdir -p ~/.vim/undo
+endif
+
+set backupdir^=~/.vim/backup//              " where to put backup files
+set directory^=~/.vim/swap//                " where to put swap files
+set undodir^=~/.vim/undo//                  " where to put undo files
+
 " to use fancy symbols for airline, uncomment the following lines and use a
 " patched font (more info on the README.rst)
 "if !exists('g:airline_symbols')
@@ -627,4 +645,4 @@ let g:airline#extensions#whitespace#enabled = 0
 "let g:airline_right_alt_sep = '⮃'
 "let g:airline_symbols.branch = '⭠'
 "let g:airline_symbols.readonly = '⭤'
-"let g:airline_symbols.linenr = '⭡'
+"let g:airline_symbols.linenr = '�
